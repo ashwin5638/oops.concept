@@ -1,0 +1,59 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Function to reverse a string
+string reverseString(const string& str) {
+    string reversedStr = str;
+    int i = 0, j = reversedStr.length() - 1;
+
+    while (i < j) {
+        swap(reversedStr[i], reversedStr[j]);
+        i++;
+        j--;
+    }
+
+    return reversedStr;
+}
+
+// Function to convert a string to uppercase
+string toUppercase(const string& str) {
+    string upperStr = str;
+
+    for (char& c : upperStr) {
+        c = toupper(c);
+    }
+
+    return upperStr;
+}
+
+// Function to remove spaces from a string
+string removeSpaces(const string& str) {
+    string noSpacesStr;
+
+    for (char c : str) {
+        if (c != ' ') {
+            noSpacesStr += c;
+        }
+    }
+
+    return noSpacesStr;
+}
+
+int main() {
+    string input;
+
+    cout << "Enter a string: ";
+    getline(cin, input);
+
+    string reversed = reverseString(input);
+    string uppercase = toUppercase(input);
+    string noSpaces = removeSpaces(input);
+
+    cout << "Reversed string: " << reversed << endl;
+    cout << "Uppercase string: " << uppercase << endl;
+    cout << "String with spaces removed: " << noSpaces << endl;
+
+    return 0;
+}
